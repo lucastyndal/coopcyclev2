@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20230409164405",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "restaurant",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "50",
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "100",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Float",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": "5",
+      "fieldValidateRulesMin": "0"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Restaurant",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "order",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "category",
+      "relationshipName": "category",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

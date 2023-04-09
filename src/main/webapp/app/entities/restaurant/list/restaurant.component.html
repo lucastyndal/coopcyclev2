@@ -1,0 +1,113 @@
+<div>
+  <h2 id="page-heading" data-cy="RestaurantHeading">
+    <span jhiTranslate="jhipsterApp.restaurant.home.title">Restaurants</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterApp.restaurant.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-restaurant"
+        [routerLink]="['/restaurant/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterApp.restaurant.home.createLabel"> Créer un nouveau Restaurant </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="restaurants?.length === 0">
+    <span jhiTranslate="jhipsterApp.restaurant.home.notFound">Aucun Restaurant trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="restaurants && restaurants.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterApp.restaurant.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterApp.restaurant.address">Address</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rating">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterApp.restaurant.rating">Rating</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="category.name">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterApp.restaurant.category">Category</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurant of restaurants; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/restaurant', restaurant.id, 'view']">{{ restaurant.id }}</a>
+          </td>
+          <td>{{ restaurant.name }}</td>
+          <td>{{ restaurant.address }}</td>
+          <td>{{ restaurant.rating }}</td>
+          <td>
+            <div *ngIf="restaurant.category">
+              <a [routerLink]="['/category', restaurant.category.id, 'view']">{{ restaurant.category.name }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/restaurant', restaurant.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/restaurant', restaurant.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(restaurant)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

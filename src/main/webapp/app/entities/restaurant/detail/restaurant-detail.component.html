@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="restaurant">
+      <h2 data-cy="restaurantDetailsHeading"><span jhiTranslate="jhipsterApp.restaurant.detail.title">Restaurant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ restaurant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.restaurant.name">Name</span></dt>
+        <dd>
+          <span>{{ restaurant.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.restaurant.address">Address</span></dt>
+        <dd>
+          <span>{{ restaurant.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.restaurant.rating">Rating</span></dt>
+        <dd>
+          <span>{{ restaurant.rating }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.restaurant.category">Category</span></dt>
+        <dd>
+          <div *ngIf="restaurant.category">
+            <a [routerLink]="['/category', restaurant.category.id, 'view']">{{ restaurant.category.name }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/restaurant', restaurant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

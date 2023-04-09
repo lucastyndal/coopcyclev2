@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20230409164406",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "delivery_man",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "50",
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "50",
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern", "unique"],
+      "fieldValidateRulesPattern": "^(\\+\\d{1,3})?\\s*(\\d{10})$"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DeliveryMan",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "deliveryMan",
+      "relationshipName": "order",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

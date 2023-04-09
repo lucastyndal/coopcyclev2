@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "coopcycle": {
+    "jhipster": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -76,15 +76,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "coopcycle:build:development",
+            "browserTarget": "jhipster:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "coopcycle:build:production"
+              "browserTarget": "jhipster:build:production"
             },
             "development": {
-              "browserTarget": "coopcycle:build:development"
+              "browserTarget": "jhipster:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,6 +104,7 @@
       "path": "./target/angular/",
       "environment": "all"
     },
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "0ea767fe-f864-4072-bd29-ffd3b5d1638b"
   }
 }

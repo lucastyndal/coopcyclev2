@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20230409164410",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "category",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "50",
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "10"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Category",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

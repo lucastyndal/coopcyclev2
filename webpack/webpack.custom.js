@@ -30,7 +30,7 @@ module.exports = async (config, options, targetOptions) => {
         },
       }),
       new WebpackNotifierPlugin({
-        title: 'Coopcycle',
+        title: 'JHipster',
         contentImage: path.join(__dirname, 'logo-jhipster.png'),
       })
     );
@@ -124,10 +124,10 @@ module.exports = async (config, options, targetOptions) => {
       output: {
         groupBy: [
           { pattern: './src/main/webapp/i18n/fr/*.json', fileName: './i18n/fr.json' },
-          { pattern: './src/main/webapp/i18n/zh-cn/*.json', fileName: './i18n/zh-cn.json' },
-          { pattern: './src/main/webapp/i18n/da/*.json', fileName: './i18n/da.json' },
           { pattern: './src/main/webapp/i18n/en/*.json', fileName: './i18n/en.json' },
-          { pattern: './src/main/webapp/i18n/fi/*.json', fileName: './i18n/fi.json' },
+          { pattern: './src/main/webapp/i18n/es/*.json', fileName: './i18n/es.json' },
+          { pattern: './src/main/webapp/i18n/de/*.json', fileName: './i18n/de.json' },
+          { pattern: './src/main/webapp/i18n/it/*.json', fileName: './i18n/it.json' },
           // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
         ],
       },

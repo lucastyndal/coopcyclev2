@@ -1,0 +1,59 @@
+// Define the DTO for each entity
+dto * with mapstruct
+
+// Define the entities and their fields
+entity Restaurant {
+  name String required minlength(2) maxlength(50)
+  address String required minlength(10) maxlength(100)
+  rating Float min(0) max(5)
+}
+
+entity DeliveryMan {
+  firstName String required minlength(2) maxlength(50)
+  lastName String required minlength(2) maxlength(50)
+  phoneNumber String pattern(/^(\+\d{1,3})?\s*(\d{10})$/) unique
+  email String required unique
+}
+
+entity Customer {
+  firstName String required minlength(2) maxlength(50)
+  lastName String required minlength(2) maxlength(50)
+  address String required minlength(10) maxlength(100)
+  phoneNumber String pattern(/^(\+\d{1,3})?\s*(\d{10})$/) unique
+  email String required unique
+}
+
+entity Order {
+  status String required
+  totalPrice Float required min(0)
+}
+
+entity Product {
+  name String required minlength(2) maxlength(50)
+  description String required minlength(10) maxlength(500)
+  price Float required min(0)
+}
+
+entity Category {
+  name String required minlength(2) maxlength(50)
+  description String required minlength(10) maxlength(500)
+}
+
+// Define the associations between the entities
+relationship ManyToOne {
+  Restaurant{category(name)} to Category
+  Product{category(name)} to Category
+}
+
+relationship ManyToMany {
+  Order{product(name)} to Product{order}
+}
+
+relationship OneToMany {
+  Restaurant{order} to Order{restaurant}
+  DeliveryMan{order} to Order{deliveryMan}
+  Customer{order} to Order{customer}
+}
+
+
+

@@ -1,8 +1,8 @@
 {
-  "name": "coopcycle",
+  "name": "jhipster",
   "version": "0.0.1-SNAPSHOT",
   "private": true,
-  "description": "Description for coopcycle",
+  "description": "Description for jhipster",
   "license": "UNLICENSED",
   "scripts": {
     "app:start": "./mvnw",

@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20230409164408",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "jhi_order",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Order",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "order",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "restaurant",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "deliveryMan",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "deliveryMan",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

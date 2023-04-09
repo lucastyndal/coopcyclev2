@@ -1,0 +1,28 @@
+{
+  "jhipsterApp": {
+    "deliveryMan": {
+      "home": {
+        "title": "Delivery Men",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Delivery Man erstellen",
+        "createOrEditLabel": "Delivery Man erstellen oder bearbeiten",
+        "notFound": "Keine Delivery Men gefunden"
+      },
+      "created": "Delivery Man erstellt mit ID {{ param }}",
+      "updated": "Delivery Man aktualisiert mit ID {{ param }}",
+      "deleted": "Delivery Man gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Delivery Man {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Delivery Man"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "order": "Order"
+    }
+  }
+}

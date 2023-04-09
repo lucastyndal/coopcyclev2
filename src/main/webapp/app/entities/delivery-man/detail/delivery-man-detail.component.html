@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="deliveryMan">
+      <h2 data-cy="deliveryManDetailsHeading"><span jhiTranslate="jhipsterApp.deliveryMan.detail.title">Delivery Man</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ deliveryMan.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.deliveryMan.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ deliveryMan.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.deliveryMan.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ deliveryMan.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.deliveryMan.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ deliveryMan.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.deliveryMan.email">Email</span></dt>
+        <dd>
+          <span>{{ deliveryMan.email }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/delivery-man', deliveryMan.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>
